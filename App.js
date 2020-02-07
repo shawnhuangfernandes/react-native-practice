@@ -21,6 +21,10 @@ export default function App() {
     ]);
   };
 
+  const onDelete = () => {
+    console.log("deleting!");
+  }
+
   return (
     <View style={styles.screen}>
       <GoalInput addGoalHandler={addGoalHandler}/>
@@ -28,7 +32,7 @@ export default function App() {
         keyExtractor={(item, index) => item.id}
         data={courseGoals}
         renderItem={itemData => (
-            <GoalItem title={itemData.item.value}/>
+            <GoalItem title={itemData.item.value} onDelete={onDelete}/>
         )}
       />
     </View>
