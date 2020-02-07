@@ -13,7 +13,7 @@ const GoalInput = props => {
       <View style={styles.inputContainer}>
         <TextInput
           placeholder={"Course Goal"}
-          style={styles.textField}
+          style={styles.input}
           onChangeText={onGoalInputChange}
           value={enteredGoal}
         />
@@ -28,11 +28,17 @@ const GoalInput = props => {
 
 const styles = StyleSheet.create({
   inputContainer: {
-    flexDirection: "row",
-    justifyContent: "space-between",
+    flex: 1,
+    justifyContent: "center",
     alignItems: "center"
   },
-  textField: { width: "80%", borderBottomColor: "black", borderBottomWidth: 1 }
+  input: {
+    width: "80%",
+    borderBottomColor: "black",
+    borderBottomWidth: 1,
+    padding: 10,
+    marginBottom: 10
+  }
 });
 
 export default GoalInput;
