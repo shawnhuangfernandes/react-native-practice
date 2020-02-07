@@ -21,8 +21,10 @@ export default function App() {
     ]);
   };
 
-  const onDelete = () => {
-    console.log("deleting!");
+  const onDelete = (goalId) => {
+    setCourseGoals(currentGoals => {
+      return currentGoals.filter((goal) => goal.id !== goalId)
+    });
   }
 
   return (
@@ -32,7 +34,7 @@ export default function App() {
         keyExtractor={(item, index) => item.id}
         data={courseGoals}
         renderItem={itemData => (
-            <GoalItem title={itemData.item.value} onDelete={onDelete}/>
+            <GoalItem id={itemData.item.id} title={itemData.item.value} onDelete={onDelete}/>
         )}
       />
     </View>
