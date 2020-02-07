@@ -1,7 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import { StyleSheet, Text, View, TextInput, Button } from "react-native";
 
 export default function App() {
+  const [enteredGoal, setEnteredGoal] = useState('');
+  const [courseGoals, setCourseGoals] = useState([]);
+
+  const onGoalInputChange = (input) => {
+    setEnteredGoal(input);
+  }
+
+  const addGoalHandler = () => {
+    setCourseGoals(...courseGoals, enteredGoal)
+  }
+
   return (
     <View style={styles.screen}>
       <View
@@ -10,8 +21,10 @@ export default function App() {
         <TextInput
           placeholder={"Course Goal"}
           style={styles.textField}
+          onChangeText={onGoalInputChange}
+          value={enteredGoal}
         />
-        <Button title="ADD" />
+        <Button title="ADD" onPress={addGoalHandler}/>
       </View>
       <View></View>
     </View>
